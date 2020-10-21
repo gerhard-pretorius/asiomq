@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package tmq;
+
+//---------------------------------------------------------
+message Header
+{
+  sfixed64 magic = 1; 
+}
+
+
+
+
