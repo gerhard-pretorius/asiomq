@@ -21,6 +21,7 @@ set(HDR_FILES
   ${PROTO_HDR}
   ${PROTO_SRC}
   tmqproto.h
+  connection.h
 )
 
 install(FILES ${HDR_FILES} DESTINATION ${HDR_DIR} COMPONENT header)

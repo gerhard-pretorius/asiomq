@@ -19,9 +19,19 @@ target_link_libraries(typegen
 set(TYPEGEN "typegen=${CMAKE_CURRENT_BINARY_DIR}/typegen")
 PROTOBUF_GENERATE_CPP_PLUGIN(PROTO_CPP PROTO_HDR PLUGIN ${TYPEGEN} foo.proto)
 
-add_executable(tmqexample tmqexample.cc ${PROTO_CPP} ${MTYPE_PROTO_CPP})
+#----------------------------------------------------------
+add_executable(client1 client1.cc ${PROTO_CPP} ${MTYPE_PROTO_CPP})
 
-target_link_libraries(tmqexample asmq 
+target_link_libraries(client1 asmq
+  ${Protobuf_PROTOC_LIBRARIES}
+  ${Protobuf_LIBRARIES}
+)
+
+
+#----------------------------------------------------------
+add_executable(server1 server1.cc ${PROTO_CPP} ${MTYPE_PROTO_CPP})
+
+target_link_libraries(server1 asmq
   ${Protobuf_PROTOC_LIBRARIES}
   ${Protobuf_LIBRARIES}
 )

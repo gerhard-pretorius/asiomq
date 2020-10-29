@@ -8,13 +8,15 @@
 
 #include "tmq/tmq.pb.h"
 
-//=========================================================
+//============================================================================
 namespace tmq {
 namespace proto {
 namespace v1 {
 
 
-//---------------------------------------------------------
+//----------------------------------------------------------------------------
+const int HeaderSize = 9; // bytes
+
 template <typename T>
 auto makeHeader(const T& msg, int size)
 {
@@ -26,6 +28,15 @@ auto makeHeader(const T& msg, int size)
   h.set_magic(t);
   return h;
 }
+
+//----------------------------------------------------------------------------
+int messageSize(const tmq::Header &h)
+{
+  auto magic = h.magic();
+  return (magic >> 40);
+}
+
+
 
 //=========================================================
 } // namespace v1

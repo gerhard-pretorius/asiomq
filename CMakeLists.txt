@@ -3,7 +3,7 @@ CC=clang CXX=clang cmake -G "Unix Makefiles" \
 -DCMAKE_PREFIX_PATH=$HOME/opt \
 -DCMAKE_BUILD_TYPE=Release \
 -DCMAKE_INSTALL_PREFIX=$HOME/install \
--DCMAKE_CXX_FLAGS="-std=c++17 -stdlib=libc++ -v" \
+-DCMAKE_CXX_FLAGS="-std=c++17 --Wno-deprecated stdlib=libc++ -v" \
 -DCMAKE_EXE_LINKER_FLAGS="-stdlib=libc++ -lc++ -lc++abi" \
 $HOME/github/asiomq
 ]]
